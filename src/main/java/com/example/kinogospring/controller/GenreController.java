@@ -13,12 +13,12 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/genre")
+@RequestMapping("/v1/genre")
 public class GenreController {
 
     private final MovieRepository movieRepository;
 
-    @GetMapping("/genre/{id}")
+    @GetMapping("/{id}")
     public String openGenre(@PathVariable("id") int id, ModelMap modelMap){
         List<Movie> allMovie = movieRepository.findAllById(id);
         modelMap.addAttribute("movies", allMovie);

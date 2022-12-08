@@ -16,10 +16,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/v1/movie")
 public class MovieController {
 
 
@@ -32,7 +32,7 @@ public class MovieController {
     @Value("${kinogo.spring.videos.folder}")
     private String folderPathVideos;
 
-    @GetMapping("/movielist")
+    @GetMapping("/getAll")
     public String getAllMovie(@ModelAttribute Movie movie, ModelMap modelMap) {
         List<Movie> all = movieService.findTop20ByOrderByIdDesc();
         int countMovie = movieService.count();
@@ -42,7 +42,7 @@ public class MovieController {
     }
 
 
-    @GetMapping("/moviesingle/{id}")
+    @GetMapping("/{id}")
     public String watchmovie(@PathVariable("id") int id, ModelMap modelMap) {
         List<Movie> movieList = movieService.findAllById(id);
         List<FilmComment> commentList = commentMovieService.findCommentByMovieId(id);
