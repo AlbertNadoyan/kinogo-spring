@@ -1,6 +1,5 @@
 package com.example.kinogospring.controller;
 
-import com.example.kinogospring.exception.BadRequestException;
 import com.example.kinogospring.exception.EntityNotFoundException;
 import com.example.kinogospring.model.entity.CastCrew;
 import com.example.kinogospring.service.CastCrewService;
