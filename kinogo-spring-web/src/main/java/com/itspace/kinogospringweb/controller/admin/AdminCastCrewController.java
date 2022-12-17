@@ -36,11 +36,8 @@ public class AdminCastCrewController {
 
     @GetMapping("/edit/{id}")
     public String editCastCrewPage(@RequestParam("castcrewId") int id, ModelMap modelMap) {
-        Optional castCrewOptional = adminCastCrewService.getById(id);
-        if (castCrewOptional.isEmpty()) {
-            return "redirect:/admin";
-        }
-        modelMap.addAttribute("castcrew", castCrewOptional.get());
+        CastCrew castCrew = adminCastCrewService.getById(id);
+        modelMap.addAttribute("castcrew", castCrew);
         return "";
     }
 

@@ -26,7 +26,7 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotEmpty(message = "movie Name should not be empty")
+//    @NotEmpty(message = "movie Name should not be empty")
     @Size(min = 4, max = 20, message = "movie Name should be between 4 and 20 character")
     private String name;
 
@@ -41,16 +41,14 @@ public class Movie {
 
     @NotBlank
     private String description;
-
-
     private String filmPic;
     private int vieweing;
-    @NotEmpty
+//    @NotEmpty
     private String filmVideo;
 
     private String filmTrailer;
     @OneToMany
-    @NotEmpty
+//    @NotEmpty
     private List<Genre> genre;
 
     @Override

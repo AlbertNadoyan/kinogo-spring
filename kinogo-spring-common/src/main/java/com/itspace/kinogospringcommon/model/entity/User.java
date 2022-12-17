@@ -23,8 +23,8 @@ public class User {
     @Size(min = 4, max = 18, message = "Name should be between 4 and 18 character")
     private String name;
 
-    @NotEmpty(message = "surName should not be empty")
-    @Size(min = 4, max = 20, message = "surName should be between 4 and 20 character")
+//    @NotEmpty(message = "surName should not be empty")
+//    @Size(min = 4, max = 20, message = "surName should be between 4 and 20 character")
     private String surname;
 
     @NotEmpty(message = "Email should not be empty")
@@ -34,20 +34,20 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private Coutry coutry;
 
-    @Min(value = 16, message = "Age should be greater than 16")
-    @Positive(message = "Age can`t be smaller than 0")
+//    @Min(value = 16, message = "Age should be greater than 16")
+//    @Positive(message = "Age can`t be smaller than 0")
     private int age;
 
     @NotEmpty
-    @Pattern(regexp = "^[a-zA-Z0-9]{6,10}$")
+//    @Pattern(regexp = "^[a-zA-Z0-9]{6,10}$")
     private String password;
     @Enumerated(value = EnumType.STRING)
-    @NotEmpty
+//    @NotEmpty
     private Role role;
     private boolean isEnabled;
     private String verifyToken;
     @Enumerated(value = EnumType.STRING)
-    @NotEmpty
+//    @NotEmpty
     private Gender gender;
 
     @Override

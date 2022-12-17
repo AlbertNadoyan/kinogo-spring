@@ -17,6 +17,7 @@ public class CastCrewResponseDto {
     private String name;
     private String career;
     private int age;
+    private String biography;
     @Enumerated(value = EnumType.STRING)
     private Zodiac zodiac;
 }

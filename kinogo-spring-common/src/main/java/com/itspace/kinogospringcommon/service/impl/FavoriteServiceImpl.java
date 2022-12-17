@@ -1,5 +1,6 @@
 package com.itspace.kinogospringcommon.service.impl;
 
+import com.itspace.kinogospringcommon.exception.EntityNotFoundException;
 import com.itspace.kinogospringcommon.model.entity.FavoriteMovie;
 import com.itspace.kinogospringcommon.model.entity.Movie;
 import com.itspace.kinogospringcommon.model.entity.User;
@@ -11,6 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +36,12 @@ public class FavoriteServiceImpl implements FavoriteService {
     @Override
     public List<FavoriteMovie> findAll() {
         return favoriteMovieRepository.findAll();
+    }
+
+    @Override
+    public FavoriteMovie getById(int id) throws EntityNotFoundException {
+        return favoriteMovieRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("FavoriteMovie not found for this id :: " + id));
     }
 
 

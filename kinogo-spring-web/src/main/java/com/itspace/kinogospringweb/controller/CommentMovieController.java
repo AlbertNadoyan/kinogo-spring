@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/v1/comment")
+@RequestMapping("/comment")
 public class CommentMovieController {
 
     private final CommentService commentService;

@@ -3,7 +3,6 @@ package com.itspace.kinogospringcommon.service.impl;
 
 import com.itspace.kinogospringcommon.model.entity.Role;
 import com.itspace.kinogospringcommon.model.entity.User;
-import com.itspace.kinogospringcommon.exception.DuplicateResourceException;
 import com.itspace.kinogospringcommon.repository.UserRepository;
 import com.itspace.kinogospringcommon.service.UserService;
 import com.sun.jdi.request.DuplicateRequestException;
@@ -24,7 +23,7 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
 
 
-    public void save(User user) throws DuplicateResourceException, MessagingException {
+    public User save(User user) throws MessagingException {
         if (userRepository.findByEmail(user.getEmail()).isPresent()) {
             throw new DuplicateRequestException("User already exists!");
         }
@@ -37,6 +36,7 @@ public class UserServiceImpl implements UserService {
         mailService.sendHtmlEmail(user.getEmail(), "Please verify your email", "Hi " + user.getName() + "\n" +
                 "Please verify your account by clicking on this link " +
                 "<a href=http://localhost:8081/user/verify?email=" + user.getEmail() + "&token=" + user.getVerifyToken());
+        return user;
     }
 
     public void verifyUser(String email, String token) throws Exception {
@@ -60,14 +60,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User update(User user) {
-        return userRepository.save(user);
+    public User update(User id) {
+        return userRepository.save(id);
     }
 
-
-//    @Override
-//    public Optional<User> update(int id) {
-//        return userRepository.save(id);
-//    }
 
 }

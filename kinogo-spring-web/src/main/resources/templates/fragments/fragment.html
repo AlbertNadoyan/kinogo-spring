@@ -68,7 +68,7 @@
                         <li><a th:if="${currentUser == null}" href="/user/login">LOG In</a></li>
                         <li><a th:if="${currentUser != null}" href="/logout">LOGOUT</a></li>
                         <span class="currentUser" th:if="${currentUser != null}" th:text="Welcome + ${currentUser.name}"></span>
-                        <li><a th:if="${currentUser == null}" href="/registration">sign up</a></li>
+                        <li><a th:if="${currentUser == null}" href="user/registration">sign up</a></li>
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

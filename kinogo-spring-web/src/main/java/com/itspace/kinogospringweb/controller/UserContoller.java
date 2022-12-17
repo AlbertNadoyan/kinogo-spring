@@ -73,15 +73,14 @@ public class UserContoller {
 
     @PostMapping("/registration")
     public String addUser(@ModelAttribute @Valid User user,
-                          BindingResult bindingResult,
-                          ModelMap modelMap) throws MessagingException, DuplicateResourceException {
+                          ModelMap modelMap) throws MessagingException {
         Optional<User> byEmail = userService.findByEmail(user.getEmail());
         if (byEmail.isPresent()) {
             modelMap.addAttribute("errorMessageEmail", "Email already in use");
             return "registration";
         }
         userService.save(user);
-        return "redirect:/login";
+        return "redirect:/user/login";
     }
 
     @GetMapping("/login")

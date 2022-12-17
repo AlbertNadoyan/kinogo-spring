@@ -25,7 +25,7 @@ public class Rated {
     @ManyToOne
     private Movie movie;
 
-    @Size(min = 1, max = 5, message = "Name should be between 1 and 5 character")
+//    @Size(min = 1, max = 5, message = "Name should be between 1 and 5 character")
     private int rate;
 
     @Override

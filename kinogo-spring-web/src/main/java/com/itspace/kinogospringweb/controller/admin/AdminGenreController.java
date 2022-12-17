@@ -1,5 +1,6 @@
 package com.itspace.kinogospringweb.controller.admin;
 
+import com.itspace.kinogospringcommon.exception.EntityNotFoundException;
 import com.itspace.kinogospringcommon.model.entity.Genre;
 import com.itspace.kinogospringcommon.service.admin.AdminGenreService;
 import lombok.RequiredArgsConstructor;
@@ -35,8 +36,8 @@ public class AdminGenreController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editGenrePage(@RequestParam("genreId") int id, ModelMap modelMap) {
-        Optional genreOptional = adminGenreService.getById(id);
+    public String editGenrePage(@RequestParam("genreId") int id, ModelMap modelMap) throws EntityNotFoundException {
+        Optional<Genre> genreOptional = adminGenreService.getById(id);
         if (genreOptional.isEmpty()) {
             return "redirect:/admin";
         }

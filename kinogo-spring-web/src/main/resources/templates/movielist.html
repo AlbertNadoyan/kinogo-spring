@@ -88,7 +88,7 @@
                     <div class="mv-item-infor">
                         <h6><a th:href="@{/moviesingle/{id}(id=${movies.id})}" th:text="${movies.name}"> <span>(2012)</span></a></h6>
                         <p class="rate"><i class="ion-android-star"></i><span>8.1</span> /10</p>
-                        <p class="describe" th:text="${movies.description.substring(0, 300)}"></p>
+                        <p class="describe" th:text="${movies.description}"></p>
                         <p class="run-time">
                             <span th:text="${movies.primere}"></span></p>
                         <p>Director: <a href="#"></a></p>

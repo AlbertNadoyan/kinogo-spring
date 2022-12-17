@@ -174,5 +174,11 @@
                                  constraintName="fk_movgen_on_movie" referencedColumnNames="id"
                                  referencedTableName="movie"/>
     </changeSet>
+    <changeSet id="456456" author="Admin (generated)">
+        <modifyDataType tableName="cast_crew" columnName="biography" newDataType="text"/>
+    </changeSet>
+    <changeSet id="467899" author="Admin (generated)">
+        <modifyDataType tableName="movie" columnName="description" newDataType="text"/>
+    </changeSet>
 
 </databaseChangeLog>
